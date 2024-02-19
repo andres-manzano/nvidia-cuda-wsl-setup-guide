@@ -45,7 +45,7 @@ Proceda a reiniciar el equipo.
 
 En la documentación oficial de Microsoft [Pasos de instalación manual para versiones anteriores de WSL](https://learn.microsoft.com/es-es/windows/wsl/install-manual) desplazarse a la sección para descargar la versión más reciente del kernel de Linux y posteriormente ejecutarlo:
 
-![Linux-Kernel.png](attachment:Linux-Kernel.png)
+![Linux-Kernel.png](/assets/Linux-Kernel-es.png?raw=true)
 
 
 **WSL2 como versión predeterminada**
@@ -60,7 +60,7 @@ wsl --set-default-version 2
 
 Abrir Microsoft Store e instalar la distribución Ubuntu, la cuál por lo general posee la versión más actualizada.+
 
-![Ubuntu.png](attachment:Ubuntu.png)
+![Ubuntu.png](/assets/Ubuntu.png?raw=true)
 
 Abrir la terminal de Ubuntu, crear una cuenta de usuario  y contraseña.
 
@@ -97,7 +97,7 @@ python3 --version
 
 En esta guía, asumimos un sistema operativo con Python 3.10 y una arquitectura X64. Descarga el archivo correspondiente a tu sistema, para nuestro ejemplo descargaremos el archivo **Miniconda3 Linux 64-bit**.
 
-![Miniconda-Linux.png](attachment:Miniconda-Linux.png)
+![Miniconda-Linux.png](/assets/Miniconda-Linux.png?raw=true)
 
 **Instalación**
 
@@ -182,14 +182,12 @@ conda init
 
 Miniconda ahora ha sido instalado y configurado.
 
-
-
 ## 3. Instalar Drivers de Tarjeta Gráfica
 
 Visita la páginca oficial de NVIDIA en la [Descarga de controladores NVIDIA](https://www.nvidia.es/Download/index.aspx?lang=es) y completa los campos con la información correspondiente a tu tarjeta gráfica y sistema operativo. En esta guía, asumimos una tarjeta gráfica NVIDIA GeForce GTX 1650 Ti.
 
 
-![NVIDIA-Drivers.png](attachment:NVIDIA-Drivers.png)
+![NVIDIA-Drivers-es.png](/assets/NVIDIA-Drivers-es.png?raw=true)
 
 Descarga el controlador y ejecuta el archivo para instalarlo en Windows OS.
 
@@ -216,14 +214,14 @@ nvidia-smi
 
 Deberías ver la información correspondiente a los controladores instalados.
 
-![nvidia-smi.png](attachment:nvidia-smi.png)
+![nvidia-smi.png](/assets/nvidia-smi.png?raw=true)
 
 
 ## 4. Instalar RAPIDS
 
 Visitar la Guía de [Instalación de Rapids](https://docs.rapids.ai/install?_gl=1*1l55d5n*_ga*MjAzMzQ4OTI2Ni4xNzA4MjA5MzI0*_ga_RKXFW6CM42*MTcwODIwOTMyNC4xLjEuMTcwODIxMDEzMy42MC4wLjA.#selector) en la sección **Install RAPIDS** y copia la línea de comando correspondiente. En este ejemplo, hemos seleccionado paquetes específicos como cuDF y cuML, y el nombre del ambiente virtual se estableció como **cuda**.
 
-![install-RAPIDS.png](attachment:install-RAPIDS.png)
+![install-RAPIDS.png](/assets/install-RAPIDS.png?raw=true)
 
 **Instalar RAPIDS**
 
@@ -264,9 +262,9 @@ code .
 
 Se instalará dentro de WSL y, una vez abierto el IDE, asegúrate de tener instaladas las siguientes extensiones:
 
-![wsl-extension.png](attachment:wsl-extension.png)
+![wsl-extension.png](/assets/wsl-extension.png?raw=true)
 
-![remote-extension.png](attachment:remote-extension.png)
+![remote-extension.png](/assets/remote-extension.png?raw=true)
 
 ## 6. Verificar activación de CUDA
 
