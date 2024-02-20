@@ -1,4 +1,5 @@
 # Guía de Instalación de NVIDIA CUDA en Windows
+**Creado:** Febrero 20, 2024
 
 Esta guía proporciona pasos detallados para instalar NVIDIA CUDA en un entorno Windows por medio de Windows Subsystem for Linux 2 (WSL2) y Miniconda.
 
