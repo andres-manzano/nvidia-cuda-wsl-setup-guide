@@ -4,9 +4,8 @@ Esta guía proporciona pasos detallados para instalar NVIDIA CUDA en un entorno 
 
 **Requisitos:**
 
-* OS Windows
 * Tarjeta Gráfica NVIDIA
-* Actualizar la versión más reciente de Winodws
+* Asegurar que tu sistema esté actualizado con la última versión por medio de Windows Update
 
 **Pasos a seguir:**
 
@@ -15,7 +14,7 @@ Esta guía proporciona pasos detallados para instalar NVIDIA CUDA en un entorno 
 3. Instalar Drivers de Tarjeta Gráfica
 4. Instalar RAPIDS
 5. Instalar Extensiones VS Code en WSL
-6. Verificar CUDA en IDE
+6. Verificar CUDA en VS Code
 7. Referencias
 
 
@@ -45,12 +44,12 @@ Proceda a reiniciar el equipo.
 
 En la documentación oficial de Microsoft [Pasos de instalación manual para versiones anteriores de WSL](https://learn.microsoft.com/es-es/windows/wsl/install-manual) desplazarse a la sección para descargar la versión más reciente del kernel de Linux y posteriormente ejecutarlo:
 
-![Linux-Kernel.png](/assets/Linux-Kernel-es.png?raw=true)
+![Linux-Kernel-es.png](/assets/Linux-Kernel-es.png?raw=true)
 
 
 **WSL2 como versión predeterminada**
 
-Abra PowerShell y ejecute el siguiente comando para establecer la versión predeterminada:
+Abra PowerShell y ejecute el siguiente comando para establecer WSL2 como la versión predeterminada:
 
 ```powershell
 wsl --set-default-version 2
@@ -58,7 +57,7 @@ wsl --set-default-version 2
 
 **Instalar distribución Linux**
 
-Abrir Microsoft Store e instalar la distribución Ubuntu, la cuál por lo general posee la versión más actualizada.+
+Abrir Microsoft Store e instalar la distribución Ubuntu, la cuál por lo general posee la versión más actualizada.
 
 ![Ubuntu.png](/assets/Ubuntu.png?raw=true)
 
@@ -66,7 +65,7 @@ Abrir la terminal de Ubuntu, crear una cuenta de usuario  y contraseña.
 
 **Actualizar paquetes de la distribución Linux**
 
-En la terminal de Ubuntu y ejecutar el siguente comando para actualizar los paquetes en WSL:
+En la terminal de Ubuntu ejecuta el siguente comando para actualizar los paquetes en WSL:
 
 ```bash
 sudo apt update && upgrade
@@ -95,7 +94,7 @@ Para conocer la versión de Python usada por el OS, abrir la terminal de Ubuntu 
 python3 --version
 ```
 
-En esta guía, asumimos un sistema operativo con Python 3.10 y una arquitectura X64. Descarga el archivo correspondiente a tu sistema, para nuestro ejemplo descargaremos el archivo **Miniconda3 Linux 64-bit**.
+En esta guía, asumimos un sistema operativo con Python 3.10 y una arquitectura X64. Descarga el archivo correspondiente a tu sistema, para nuestro ejemplo descargamos el archivo **Miniconda3 Linux 64-bit**.
 
 ![Miniconda-Linux.png](/assets/Miniconda-Linux.png?raw=true)
 
@@ -113,7 +112,7 @@ Luego, ejecuta el archivo con el siguiente comando:
 ./Miniconda3-py310_23.11.0-2-Linux-x86_64.sh
 ```
 
-Presiona **Enter** para comenzar. Puedes leer la licencia de usuario u omitirla presionando **q**. Después, acepta la licencia escribiendo **yes**
+Presiona **Enter** para comenzar. Puedes leer la licencia de usuario u omitirla presionando **q**. Después, acepta la licencia escribiendo **yes**.
 
 **Directorio de instalación**
 
@@ -137,13 +136,13 @@ Luego ejecuta:
 nano -wc .bashrc
 ```
 
-Ve al final presionado **Ctrl + abajo**, presiona **Enter** y escribe:
+Ve al final presionando **Ctrl + abajo**, presiona **Enter** y escribe:
 
 ```bash
 export PATH=${PATH}:${HOME}/.miniconda3/bin
 ```
 
-Sal del editor presionando **Ctrl + x** y escribe **yes**
+Sal del editor presionando **Ctrl + x** y escribe **yes**.
 
 **Verificar la instalación de Miniconda**
 
@@ -153,13 +152,13 @@ Ejecuta el comando:
 source .bashrc
 ```
 
-Luego, ejecuta el comando:
+Luego, ejecuta:
 
 ```bash
 conda update conda
 ```
 
-Si no retorna errores, la instalación ha sido exitosa. en este punto Miniconda debería buscar actualizaciones, si las hay presiona **y** para actualizar.
+Si no retorna errores, la instalación ha sido exitosa. En este punto, Miniconda debería buscar actualizaciones; si las hay, escribe **y** para actualizar.
 
 **Conda**
 
@@ -176,6 +175,7 @@ exit
 ```
 
 Abre una nueva terminal de Ubuntu y ejecuta el comando:
+
 ```bash
 conda init
 ```
@@ -184,12 +184,13 @@ Miniconda ahora ha sido instalado y configurado.
 
 ## 3. Instalar Drivers de Tarjeta Gráfica
 
-Visita la páginca oficial de NVIDIA en la [Descarga de controladores NVIDIA](https://www.nvidia.es/Download/index.aspx?lang=es) y completa los campos con la información correspondiente a tu tarjeta gráfica y sistema operativo. En esta guía, asumimos una tarjeta gráfica NVIDIA GeForce GTX 1650 Ti.
-
+Visita la página oficial de NVIDIA en la [Descarga de controladores NVIDIA](https://www.nvidia.es/Download/index.aspx?lang=es) y completa los campos con la información correspondiente a tu tarjeta gráfica y sistema operativo. En esta guía, asumimos una tarjeta gráfica NVIDIA GeForce GTX 1650 Ti.
 
 ![NVIDIA-Drivers-es.png](/assets/NVIDIA-Drivers-es.png?raw=true)
 
 Descarga el controlador y ejecuta el archivo para instalarlo en Windows OS.
+
+Nota: el usuario necesita tener una GPU NVIDIA compatible para realizar estos pasos.
 
 **Instalación de Controladores NVIDIA en WSL**
 
@@ -200,7 +201,6 @@ sudo apt update && upgrade
 ```
 
 Luego, instala los controladores según la versión. En este ejemplo, instalamos la versión 545:
-
 
 ```bash
 sudo apt install nvidia-driver-545
@@ -219,11 +219,9 @@ Deberías ver la información correspondiente a los controladores instalados.
 
 ## 4. Instalar RAPIDS
 
-Visitar la Guía de [Instalación de Rapids](https://docs.rapids.ai/install?_gl=1*1l55d5n*_ga*MjAzMzQ4OTI2Ni4xNzA4MjA5MzI0*_ga_RKXFW6CM42*MTcwODIwOTMyNC4xLjEuMTcwODIxMDEzMy42MC4wLjA.#selector) en la sección **Install RAPIDS** y copia la línea de comando correspondiente. En este ejemplo, hemos seleccionado paquetes específicos como cuDF y cuML, y el nombre del ambiente virtual se estableció como **cuda**.
+Visitar la [Guía de Instalación de Rapids](https://docs.rapids.ai/install?_gl=1*1l55d5n*_ga*MjAzMzQ4OTI2Ni4xNzA4MjA5MzI0*_ga_RKXFW6CM42*MTcwODIwOTMyNC4xLjEuMTcwODIxMDEzMy42MC4wLjA.#selector) en la sección **Install RAPIDS** y copia la línea de comando correspondiente. En este ejemplo, hemos seleccionado paquetes específicos como cuDF y cuML, y el nombre del ambiente virtual se estableció como **cuda**.
 
 ![install-RAPIDS.png](/assets/install-RAPIDS.png?raw=true)
-
-**Instalar RAPIDS**
 
 Usa el siguiente comando como ejemplo:
 
@@ -240,7 +238,7 @@ conda list
 ```
 **Librerías Adicionales**
 
-Instala la librería Pytorch:
+Instala Pytorch:
 
 ```bash
 conda install -c pytorch pytorch
@@ -266,9 +264,9 @@ Se instalará dentro de WSL y, una vez abierto el IDE, asegúrate de tener insta
 
 ![remote-extension.png](/assets/remote-extension.png?raw=true)
 
-## 6. Verificar activación de CUDA
+## 6. Verificar CUDA en VS Code
 
-Finalmente, asegúrate de que puedas utilizar la biblioteca CUDA. Abre un Jupyter Notebook en VS Code y ejecuta el siguiente código:
+Finalmente, asegúrate de que puedas utilizar CUDA. Abre un Jupyter Notebook en VS Code y ejecuta el siguiente código:
 
 ```python
 import torch
@@ -276,7 +274,7 @@ import torch
 torch.cuda.is_available()
 ```
 
-Si el resultado es True, significa que CUDA está activado y listo para ser utilizado. ¡Felicidades!
+Si el resultado es **True**, significa que CUDA está disponible y listo para ser utilizado. ¡Felicidades!
 
 ## 7. Referencias
 
