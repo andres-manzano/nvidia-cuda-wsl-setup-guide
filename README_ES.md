@@ -56,6 +56,8 @@ Abra PowerShell y ejecute el siguiente comando para establecer WSL2 como la vers
 wsl --set-default-version 2
 ```
 
+ Si ya tienes instalado WSL con una versión anterior (WSL1), se debe actualizar a la versión 2.
+
 **Instalar distribución Linux**
 
 Abrir Microsoft Store e instalar la distribución Ubuntu, la cuál por lo general posee la versión más actualizada.
@@ -71,7 +73,11 @@ En la terminal de Ubuntu ejecuta el siguente comando para actualizar los paquete
 ```bash
 sudo apt update && upgrade
 ```
+o
 
+```bash
+sudo apt update && sudo apt upgrade
+```
 Ingresar la contraseña establecida anteriormente.
 
 **Instalar Neofetch (Opcional)**

@@ -55,6 +55,8 @@ Open PowerShell and execute the following command to set WSL2 as default version
 wsl --set-default-version 2
 ```
 
+ If you have already installed WSL with an earlier version (WSL1), you must update it to version 2
+
 **Install Linux distribution**
 
 Open Microsoft Store and install the Ubuntu Linux distribution, which generally has the most updated version.
@@ -69,6 +71,11 @@ In the Ubuntu terminal, execute the following command to update the WSL packages
 
 ```bash
 sudo apt update && upgrade
+```
+or
+
+```bash
+sudo apt update && sudo apt upgrade
 ```
 
 Enter the password established earlier.
