@@ -127,7 +127,7 @@ Press **Enter** to begin. You can read the end-user license agreement or skip it
 Set the default directory using the following command:
 
 ```bash
-{HOME}/.miniconda3
+${HOME}/.miniconda3
 ```
 
 After installing the base environment, press **Enter** to complete the installation.
