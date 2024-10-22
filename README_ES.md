@@ -126,7 +126,7 @@ Presiona **Enter** para comenzar. Puedes leer la licencia de usuario u omitirla 
 Establece el directorio por defecto, por medio del siguiente comando:
 
 ```bash
-{HOME}/.miniconda3
+${HOME}/.miniconda3
 ```
 
 Después de instalar el ambiente base, presionar **Enter** para finalizar la instalación.
